@@ -1,14 +1,13 @@
-🎮 Minecraft 基岩版伺服器狀態 Discord 機器人
-這個 Discord 機器人用於監控您的 Minecraft 基岩版 (Bedrock Edition) 伺服器狀態，並將即時的玩家數量和校準後的延遲數據顯示為機器人的自訂狀態。
-✨ 主要功能
+# 🎮 Minecraft 基岩版伺服器狀態 Discord 機器人
+## 這個 Discord 機器人用於監控您的 Minecraft 基岩版 (Bedrock Edition) 伺服器狀態，並將即時的玩家數量和校準後的延遲數據顯示為機器人的自訂狀態。
+## ✨ 主要功能
  * 實時伺服器監控：定時查詢 Minecraft 基岩版伺服器狀態。
  * 動態活動狀態：將伺服器上的玩家數量（例如：玩家: 8/50）和校準後的延遲（例如：延遲: 123ms）顯示為 Discord 機器人的自訂活動狀態。
  * 自動在線/離線檢測：當伺服器離線或查詢超時時，機器人狀態會自動更新為「伺服器離線或超時」。
  * 手動查詢指令：提供 !mcbestatus 指令，允許用戶隨時手動查詢伺服器詳細狀態。
  * 自訂延遲校準：延遲數據會經過 (原始延遲 / 2) - 18 的公式計算後顯示，以更好地符合特定地理區域的實際體驗。
  * 避免 Discord API 限速：更新頻率經過優化，以確保機器人狀態更新不會觸發 Discord API 的限速。
-🚀 開始使用
-先決條件
+## 🚀 開始使用
 在運行此機器人之前，請確保您具備以下條件：
  * Python 3.8+ 環境
  * Discord 機器人帳戶：您需要一個 Discord 機器人應用程式和其 Bot Token。
@@ -18,32 +17,31 @@
    * 確保您的機器人在 OAuth2 -> URL Generator 中至少擁有 bot 權限，並且在 Bot 選項卡中啟用 Message Content Intent。
  * Discord 伺服器：將您的機器人邀請到您要監控的 Discord 伺服器中。
  * Minecraft 基岩版伺服器：確保您擁有一個正在運行的 Minecraft 基岩版伺服器 (IP 和埠號)。
-安裝步驟
+## 安裝步驟
  * 複製儲存庫：
-   git clone https://github.com/您的用戶名/您的儲存庫名稱.git
-cd 您的儲存庫名稱
+   git clone https://github.com/NOC0212/mc-dc-bot.git
+cd mc-dc-bot
 
  * 安裝必要的 Python 函式庫：
    pip install discord.py mcstatus asyncio
 
  * 配置機器人：
    打開 main.py (或您儲存程式碼的檔案)，並修改頂部的配置區塊：
-   # --- 配置您的資訊 ---
-MINECRAFT_SERVER_ADDRESS = "您的Minecraft伺服器IP或域名" # 例如: "20.195.24.81"
-MINECRAFT_SERVER_PORT = 您的Minecraft伺服器埠號 # 例如: 24572 或預設的 19132
-DISCORD_BOT_TOKEN = "您的Discord機器人權杖" # 將這裡替換為您的機器人Token
+   ### --- 配置您的資訊 ---
+* MINECRAFT_SERVER_ADDRESS = "您的Minecraft伺服器IP或域名" # 例如: "20.195.24.81"
+* MINECRAFT_SERVER_PORT = 您的Minecraft伺服器埠號 # 例如: 24572 或預設的 19132
+* DISCORD_BOT_TOKEN = "您的Discord機器人權杖" # 將這裡替換為您的機器人Token
 
-# 自動更新的間隔時間 (秒)
-# 推薦 30-60 秒，以實現較快的更新同時避免限速
-UPDATE_INTERVAL_SECONDS = 30
+## 自動更新的間隔時間 (秒)
+## 推薦 5-20 秒，以實現較快的更新同時避免限速
+UPDATE_INTERVAL_SECONDS = 5
 # --- 配置結束 ---
 
    * 將 MINECRAFT_SERVER_ADDRESS 和 MINECRAFT_SERVER_PORT 替換為您的伺服器資訊。
    * 將 DISCORD_BOT_TOKEN 替換為您從 Discord Developers Portal 獲取到的機器人 Token。
    * UPDATE_INTERVAL_SECONDS 預設為 30 秒，您可以根據需要調整，但請勿設置過低以避免潛在的 Discord API 限速。
- * 運行機器人：
+ ## 運行機器人：
    python main.py
-
    如果一切配置正確，您將在控制台中看到「機器人已準備好！」的訊息，並且機器人會開始更新其狀態。
 🔧 配置選項說明
  * MINECRAFT_SERVER_ADDRESS: 您的 Minecraft 基岩版伺服器的 IP 位址或域名。
