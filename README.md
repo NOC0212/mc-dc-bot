@@ -4,8 +4,7 @@
  * 實時伺服器監控：定時查詢 Minecraft 基岩版伺服器狀態。
  * 動態活動狀態：將伺服器上的玩家數量（例如：玩家: 8/50）和校準後的延遲（例如：延遲: 123ms）顯示為 Discord 機器人的自訂活動狀態。
  * 自動在線/離線檢測：當伺服器離線或查詢超時時，機器人狀態會自動更新為「伺服器離線或超時」。
- * 手動查詢指令：提供 !mcbestatus 指令，允許用戶隨時手動查詢伺服器詳細狀態。
- * 自訂延遲校準：延遲數據會經過 (原始延遲 / 2) - 18 的公式計算後顯示，以更好地符合特定地理區域的實際體驗。
+ * 手動查詢指令：提供 !mcbestatus 指令，允許用戶隨時手動查詢伺服器詳細狀態
  * 避免 Discord API 限速：更新頻率經過優化，以確保機器人狀態更新不會觸發 Discord API 的限速。
 ## 🚀 開始使用
 在運行此機器人之前，請確保您具備以下條件：
@@ -28,8 +27,8 @@
  * 配置機器人：
    打開 main.py (或您儲存程式碼的檔案)，並修改頂部的配置區塊：
    ## --- 配置您的資訊 ---
-* MINECRAFT_SERVER_ADDRESS = "您的Minecraft伺服器IP或域名" # 例如: "20.195.24.81"
-* MINECRAFT_SERVER_PORT = 您的Minecraft伺服器埠號 # 例如: 24572 或預設的 19132
+* MINECRAFT_SERVER_ADDRESS = "您的Minecraft伺服器IP或域名" # 例如: "127.0.0.1"
+* MINECRAFT_SERVER_PORT = 您的Minecraft伺服器埠號 # 例如: 19132
 * DISCORD_BOT_TOKEN = "您的Discord機器人權杖" # 將這裡替換為您的機器人Token
 
 ## 自動更新的間隔時間 (秒)
@@ -66,7 +65,7 @@ UPDATE_INTERVAL_SECONDS = 5
    * 確認 MINECRAFT_SERVER_ADDRESS 和 MINECRAFT_SERVER_PORT 是否正確。
    * 確保 Minecraft 伺服器正在運行並且可以從外部訪問。
  * Discord API 限速警告：
-   * 如果控制台出現 We are being rate limited 警告，這表示您可能將 UPDATE_INTERVAL_SECONDS 設置得太低。嘗試增加該值（例如，從 30 秒增加到 60 秒或 120 秒）。對於機器人活動狀態，30 秒通常是安全的。
+   * 如果控制台出現 We are being rate limited 警告，這表示您可能將 UPDATE_INTERVAL_SECONDS 設置得太低。嘗試增加該值（例如，從 0.5秒增加到 5 秒或 10 秒）。對於機器人活動狀態，5 秒通常是安全的。
  * 玩家人數顯示 N/A：
    * 這可能意味著 mcstatus 函式庫無法從您的 Minecraft 伺服器獲取到玩家列表信息。這可能是伺服器配置、版本不兼容或 mcstatus 函式庫的局限性所致。此時，機器人會顯示 N/A。
 ### 🤝 貢獻
