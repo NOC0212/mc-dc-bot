@@ -3,14 +3,13 @@ from discord.ext import commands, tasks
 import asyncio
 from mcstatus.server import BedrockServer
 
-# --- 配置您的資訊 ---
-MINECRAFT_SERVER_ADDRESS = "YOUR_IP"
-MINECRAFT_SERVER_PORT = YOUR_PORT
+# --- 配置您的資訊 ---(-------修改處-------)
+MINECRAFT_SERVER_ADDRESS = "YOUR_SERVER_IP"
+MINECRAFT_SERVER_PORT = YOUR_SERVER_PORT
 DISCORD_BOT_TOKEN = "YOUR_DISCORDBOT_TOKEN"
 
-# 自動更新的間隔時間 (秒)
-# **修正**：將更新間隔改為 30 秒
-UPDATE_INTERVAL_SECONDS = 30 # 每 30 秒更新一次
+# 自動更新的間隔時間 (秒)(-------修改處-------)
+UPDATE_INTERVAL_SECONDS = 5 
 
 # --- 配置結束 ---
 
